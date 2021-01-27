@@ -1,0 +1,68 @@
+.row {
+    text-align: center;
+}
+
+body {
+    margin-top: 10px !important;
+}
+
+.nisbutton {
+    font-size: 8pt !important;
+}
+
+.main {
+    overflow-y: scroll;
+    max-height: 75vh;
+    margin-top: 8px;
+}
+
+.modal-body,
+.modal-header,
+.modal-footer {
+    background-color: grey;
+    color: white;
+}
+
+.warning {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
+.danger {
+    background-color: red;
+    color: black;
+    font-weight: bold;
+}
+
+.list-group-item {
+    background: transparent;
+    border: grey solid 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: .25rem;
+    text-align: left;
+}
+
+.list-group {
+    height: calc(100vh - 4.25em);
+    overflow-y: scroll;
+    padding-top: 20px;
+}
+
+.list-group::-webkit-scrollbar {
+    display: none;
+}
+
+.header {
+    text-align: center;
+    background: url(https://runeapps.org/nis/alt1-currentskin/nisbutton.png) 0px -100%/24px 400% repeat content-box;
+    background-color: black;
+    color: black;
+    font-family: 'trajan-pro-3';
+    padding: unset;
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 1;
+}

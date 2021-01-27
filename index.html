@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="https://runeapps.org/runeappslib.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css">
+    <script type="text/javascript" src="https://runeapps.org/alt1lib.js"></script>
+    <script type="text/javascript" src="https://runeapps.org/imagedetect.js"></script>
+    <script type="text/javascript" src="https://runeapps.org/imagelibs/chatbox.js"></script>
+</head>
+
+<body class="nis">
+
+    <ul class="itemList list-group"></ul>
+
+    <div class="container">
+        <div class="row fixed-bottom">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <!-- <button class="tracker nisbutton">
+                            Start
+                        </button> -->
+                        <button class="nisbutton" data-toggle="modal" data-target="#settings" type="button">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal nis" tabindex="-1" role="dialog" id="settings">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Settings</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col" title="Allows the user to select the chat box the app should target.">
+                            <h6>Select Chat</h6>
+                        </div>
+                        <div class="col">
+                            <select class="chat">
+                                <option value="">Select Chat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" title="Exports the current data as a CSV file.">
+                            <button class='nisbutton export'>
+                                CSV Export
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="nisbutton" data-type="reset" data-toggle="collapse" href="#resetApp">
+                                Factory Reset
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row collapse danger" id="resetApp">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-center">
+                                    This will remove all saved data and set all settings to default. This is irreversable!
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="nisbutton clear" data-type="reset" data-toggle="collapse" href="#resetApp">
+                                        Yes
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="nisbutton" data-toggle="collapse" href="#resetApp">
+                                        No
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="scripts/script.js"></script>
+
+</html>
