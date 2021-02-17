@@ -1,8 +1,8 @@
 {
   "appName": "SerenTracker",
   "description": "Tracks Seren Spirit Drops as they appear in the chat box.",
-  "appUrl": "http://zerogwafa.github.io/SerenTracker/",
-  "configUrl": "http://zerogwafa.github.io/SerenTracker/appconfig.json",
+  "appUrl": "http://127.0.0.1:8082/SerenTracker/",
+  "configUrl": "http://127.0.0.1:8082/SerenTracker/appconfig.json",
   "defaultWidth": 218,
   "defaultHeight": 139,
   "minWidth": 218,
