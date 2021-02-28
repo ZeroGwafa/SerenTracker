@@ -59,6 +59,7 @@ function showSelectedChat(chat) {
   } catch { }
 }
 
+let lastSerenSpiritDetected;
 //Reading and parsing info from the chatbox.
 function readChatbox() {
   var opts = reader.read() || [];
@@ -69,8 +70,14 @@ function readChatbox() {
   }
 
   if (chat.indexOf("Seren spirit gifts you") > -1) {
+    let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you : (\d+ x [A-Za-z\s-'()1-4]+)/);
+    if(currentSerenSpiritDetected[0].trim() === lastSerenSpiritDetected) {
+      return;
+    }
+    lastSerenSpiritDetected = currentSerenSpiritDetected[0].trim();
+
     let getItem = {
-      item: chat.match(/\d+ x [A-Za-z\s-'()1-4]+/)[0].trim(),
+      item: currentSerenSpiritDetected[1].trim(),
       time: new Date()
     };
     console.log(getItem);
