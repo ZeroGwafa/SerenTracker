@@ -3,6 +3,7 @@
   "description": "Tracks Seren Spirit Drops as they appear in the chat box.",
   "appUrl": "./index.html",
   "configUrl": "./appconfig.json",
+  "iconUrl": "./readme-assets/icon.png",
   "defaultWidth": 218,
   "defaultHeight": 139,
   "minWidth": 218,
