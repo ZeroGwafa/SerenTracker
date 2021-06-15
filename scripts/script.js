@@ -1,12 +1,12 @@
 //Enable "Add App" button for Alt1 Browser.
-a1lib.identifyUrl("appconfig.json");
+A1lib.identifyApp("appconfig.json");
 
 // Set Chat reader
-var reader = new ChatBoxReader();
+let reader = new Chatbox.default();
 reader.readargs = {
   colors: [
-    a1lib.mixcolor(0, 255, 255), //Seren text color
-    // a1lib.mixcolor(127,169,255), //Test Chat text color
+    A1lib.mixColor(0, 255, 255), //Seren text color
+    // A1lib.mixColor(127,169,255), //Test Chat text color
   ],
   backwards: true,
 };
@@ -20,6 +20,7 @@ let saveData = JSON.parse(localStorage.serenData);
 //Find all visible chatboxes on screen
 $(".itemList").append("<li class='list-group-item'>Searching for chatboxes</li>");
 reader.find();
+reader.read();
 let findChat = setInterval(function () {
   if (reader.pos === null)
     reader.find();
@@ -48,7 +49,7 @@ function showSelectedChat(chat) {
   //Attempt to show a temporary rectangle around the chatbox.  skip if overlay is not enabled.
   try {
     alt1.overLayRect(
-      a1lib.mixcolor(0, 255, 255),
+      A1lib.mixColor(0, 255, 255),
       chat.mainbox.rect.x,
       chat.mainbox.rect.y,
       chat.mainbox.rect.width,
