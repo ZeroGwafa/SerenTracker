@@ -1,6 +1,8 @@
 //Enable "Add App" button for Alt1 Browser.
 A1lib.identifyApp("appconfig.json");
 
+const appColor = A1lib.mixColor(0, 255, 255);
+
 // Set Chat reader
 let reader = new Chatbox.default();
 reader.readargs = {
@@ -49,13 +51,13 @@ function showSelectedChat(chat) {
   //Attempt to show a temporary rectangle around the chatbox.  skip if overlay is not enabled.
   try {
     alt1.overLayRect(
-      A1lib.mixColor(0, 255, 255),
+      appColor,
       chat.mainbox.rect.x,
       chat.mainbox.rect.y,
       chat.mainbox.rect.width,
       chat.mainbox.rect.height,
       2000,
-      1
+      5
     );
   } catch { }
 }
