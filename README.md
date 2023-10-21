@@ -1,5 +1,3 @@
-## NOTE: This will only work with 11pt text size for now.
-
 # SerenTracker
 
 Tracks Seren Spirit drops gained via the chat window.
