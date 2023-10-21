@@ -88,6 +88,7 @@ window.setTimeout(function () {
 
   function showItems() {
     $(".itemList").empty();
+    $(".itemList").append(`<li class="list-group-item total">Total Seren Spirits collected: <span style="font-weight:bold">${JSON.parse(localStorage.getItem("serenData")).length}</span></li>`);
     if (localStorage.getItem("serenTotal") === "total") {
       $(".itemList").append(`<li class="list-group-item header" data-show="history" title="Click to show History">Seren Item Totals</li>`);
       let total = getTotal();

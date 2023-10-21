@@ -66,3 +66,7 @@ body {
     width: 100%;
     z-index: 1;
 }
+
+.total {
+    color: rgb(0, 255, 255);
+}
