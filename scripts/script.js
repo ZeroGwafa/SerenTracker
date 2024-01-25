@@ -75,7 +75,7 @@ window.setTimeout(function () {
     }
 
     if (chat.indexOf("Seren spirit gifts you") > -1) {
-      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you : (\d+ x [A-Za-z\s-'()1-4]+)/);
+      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you: (\d+ x [A-Za-z\s-'()1-4]+)/);
       if (currentSerenSpiritDetected[0].trim() === lastSerenSpiritDetected) {
         return;
       }
