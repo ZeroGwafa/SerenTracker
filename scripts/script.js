@@ -23,6 +23,7 @@ window.setTimeout(function () {
 
   //Find all visible chatboxes on screen
   $(".itemList").append("<li class='list-group-item'>Searching for chatboxes</li>");
+  $(".itemList").append("<li class='list-group-item' style='word-wrap:break-word;white-space: normal'>If this is showing for an extended period of time, then the chatbox read for Alt1 isn't working due to an update.  Please be patient, and the issue will be fixed as soon as it can!</li>");
   reader.find();
   reader.read();
   let findChat = setInterval(function () {
