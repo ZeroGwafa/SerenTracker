@@ -1,33 +1,26 @@
 <html>
 
 <head>
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <script type="text/javascript" src="https://runeapps.org/runeappslib.js"></script>
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css">
-    <script src="https://www.unpkg.com/alt1/dist/base/index.js"></script>
-    <script src="https://www.unpkg.com/alt1/dist/ocr/index.js"></script>
-    <script src="https://www.unpkg.com/alt1/dist/chatbox/index.js"></script>
 </head>
 
 <body class="nis">
 
-    <ul class="itemList list-group"></ul>
+    <ul class="itemList list-group">
+        <li class="list-group-item header" data-show="history" title="Loading">Loading...</li>
+        <li class="list-group-item total">Total Seren Spirits collected: <span id="total" style="font-weight:bold"></span></li>
+        <li class='list-group-item item' style='word-wrap:break-word;white-space: normal'>If this message is showing for an extended period of time, then the chatbox reader for Alt1 isn't working due to an update.  Please be patient, and the issue will be fixed as soon as it can!
+    </ul>
 
     <div class="container">
         <div class="row fixed-bottom">
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <!-- <button class="tracker nisbutton">
-                            Start
-                        </button> -->
-                        <button class="nisbutton" data-toggle="modal" data-target="#settings" type="button">
+                        <button class="nisbutton" data-bs-toggle="modal" data-bs-target="#settings" type="button">
                             Settings
                         </button>
                     </div>
@@ -40,7 +33,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Settings</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -64,7 +57,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button class="nisbutton" data-type="reset" data-toggle="collapse" href="#resetApp">
+                            <button class="nisbutton" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
                                 Factory Reset
                             </button>
                         </div>
@@ -78,12 +71,12 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button class="nisbutton clear" data-type="reset" data-toggle="collapse" href="#resetApp">
+                                    <button class="nisbutton clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
                                         Yes
                                     </button>
                                 </div>
                                 <div class="col">
-                                    <button class="nisbutton" data-toggle="collapse" href="#resetApp">
+                                    <button class="nisbutton" data-bs-toggle="collapse" href="#resetApp">
                                         No
                                     </button>
                                 </div>
@@ -95,6 +88,5 @@
         </div>
     </div>
 </body>
-<script src="scripts/script.js"></script>
-
+<script src="./main.js"></script>
 </html>

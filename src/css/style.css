@@ -42,6 +42,7 @@ body {
     white-space: nowrap;
     padding: .25rem;
     text-align: left;
+    color: white;
 }
 
 .list-group {
