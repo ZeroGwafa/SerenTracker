@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
+    <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css">
+</head>
+
+<body class="nis">
+
+    <ul class="itemList list-group">
+        <li class="list-group-item header" data-show="history" title="Loading">Loading...</li>
+        <li class="list-group-item total">Total Seren Spirits collected: <span id="total" style="font-weight:bold"></span></li>
+        <li class='list-group-item item' style='word-wrap:break-word;white-space: normal'>If this message is showing for an extended period of time, then the chatbox reader for Alt1 isn't working due to an update.  Please be patient, and the issue will be fixed as soon as it can!
+    </ul>
+
+    <div class="container">
+        <div class="row fixed-bottom">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <button class="nisbutton" data-bs-toggle="modal" data-bs-target="#settings" type="button">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal nis" tabindex="-1" role="dialog" id="settings">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col" title="Allows the user to select the chat box the app should target.">
+                            <h6>Select Chat</h6>
+                        </div>
+                        <div class="col">
+                            <select class="chat">
+                                <option value="">Select Chat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" title="Exports the current data as a CSV file.">
+                            <button class='nisbutton export'>
+                                CSV Export
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="nisbutton" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                                Factory Reset
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row collapse danger" id="resetApp">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-center">
+                                    This will remove all saved data and set all settings to default. This is irreversable!
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="nisbutton clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                                        Yes
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="nisbutton" data-bs-toggle="collapse" href="#resetApp">
+                                        No
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./main.js"></script>
+</html>
