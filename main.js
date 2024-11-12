@@ -4854,6 +4854,7 @@ exportButton.addEventListener("click", function () {
 // Factory Reset logic
 clearButton.addEventListener("click", function () {
     localStorage.removeItem(appName);
+    localStorage.setItem(appName, JSON.stringify({ chat: 0, data: [], mode: "history" }));
     location.reload();
 });
 // "View" logic
@@ -4879,8 +4880,16 @@ TODO:
 - Continue to tidy code, create pure functions, etc.
 - Look into only keeping the relavent SerenSpirit line in chatHistory. - DONE
 */
-// Convert old localStorage save data to new format.  Keep serenData entry just in case.
 (function () {
+    // Fresh install, initialize Save Data
+    if (!localStorage.getItem("serenData") &&
+        !localStorage.getItem("serenTotal") &&
+        !localStorage.getItem("serenChat") &&
+        !localStorage.getItem(appName)) {
+        localStorage.setItem(appName, JSON.stringify({ chat: 0, data: [], mode: "history" }));
+        location.reload();
+    }
+    // Convert old localStorage save data to new format.  Keep serenData entry just in case.
     if (localStorage.getItem("serenData")) {
         updateSaveData({ data: JSON.parse(localStorage.getItem("serenData")) });
         localStorage.setItem("serenDataBackup", localStorage.getItem("serenData"));
@@ -4928,7 +4937,7 @@ function updateSaveData() {
 }
 function getSaveData(name) {
     var lsData = JSON.parse(localStorage.getItem(appName));
-    return lsData[name];
+    return lsData[name] || false;
 }
 
 })();
