@@ -4735,7 +4735,7 @@ function readChatbox() {
             continue;
         }
         if (chatLine.indexOf("Seren spirit gifts you") > -1) {
-            var item = chatLine.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you: (\d+ x [A-Za-z\s-'()1-4]+)/);
+            var item = chatLine.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you: (\d+ x [A-Za-z\s-&+'()1-4]+)/);
             var getItem = {
                 item: item[1].trim(),
                 time: new Date(),
