@@ -5,7 +5,7 @@
 		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
-		"alt1": "^0.0.10"
+		"alt1": "^0.1.0"
 	},
 	"devDependencies": {
 		"@types/node": "^12.12.54",
