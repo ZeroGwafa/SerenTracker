@@ -1,51 +1,240 @@
-# SerenTracker
+Lucky Rings Tracker (LOTD & Hazelmere)
+📋 DESCRIPTION
+Ring Tracker is an Alt1 Toolkit app that automatically monitors and records all special drops from the Luck of the Dwarves (LOTD) and Hazelmere's Signet Ring in RuneScape.
 
-Tracks Seren Spirit drops gained via the chat window.
+Credits: Based on the original SerenTracker by ZeroGwafa
 
-## Installation:
+✨ MAIN FEATURES
+1️⃣ DROP MONITORING
+✅ Automatically detects drop messages in chat
 
-Install by copying this either copy pasting the following link in your browser.
+✅ Recognizes 3 different message types:
 
-alt1://addapp/https://zerogwafa.github.io/SerenTracker/appconfig.json
+LOTD: "Your Luck of the Dwarves shines brightly and you receive:"
 
-Or, by going to the following link in the Alt1 Browser
+Hazelmere Normal: "Your Hazelmere's signet ring shines brightly. You receive:"
 
-https://zerogwafa.github.io/SerenTracker/
+Hazelmere Double: "The power of Hazelmere blesses your drop and doubles it before your very eyes:"
 
-## Instructions:
+2️⃣ VISUAL INTERFACE
+📊 Drop History
+Chronological list of all detected drops
 
-    1. Open app with RuneScape window visible.
+Identification icons:
 
-    2. Ensure that the chat filter is off on the chat window you want to track materials on.
+💎 = LOTD Drop
 
-        2a. Ensure timestamps are on!
+👑 = Hazelmere Drop
 
-    3. Make sure your transparency is turned off (Not see-through) on your interfaces!  Settings -> UI Customisation -> Move Transparency slider all the way to the left.
+Mouse over shows:
 
-## Main Window
+Exact date and time of the drop
 
-![menu](/readme-assets/ItemHistory.png)
+Ring type that generated the drop
 
-By default, the app will show the item history, or the list of items received from Seren Spirits, in the order of most recent at the top of the list. You can Mouse-Over each entry to see the local time and date when it was acquired.
+📈 Item Totals
+Total accumulated quantity of each item
 
-Clicking the header (Where it shows "Seren Item History") will change the display to item totals.
+Clear separation between:
 
-![menu](/readme-assets/ItemTotals.png)
+LOTD drops
 
-This shows the total amount of each item acquired via Seren Spirits.
+Hazelmere drops
 
-## Settings
+Alphabetical item sorting
 
-![menu](/readme-assets/menu.png)
+3️⃣ CONTROLS
+🎯 Chat Selection
+Automatically detects all visible chats on screen
 
-### Select Chat
+Dropdown menu to select which chat to monitor
 
-This app will detect all visible chat windows. You can use this option to have the app target a specific window (The default is the window closest to the top-left of the screen). When selecting a different window, a box will surround the selected chat window briefly to show which chat you have selected.
+Visual overlay (cyan rectangle) confirming selected chat
 
-### CSV Export
+Selection persists between sessions
 
-- Clicking this will generate a CSV file with your item history, or item totals (Whichever is currently displayed on the main screen).
+📤 CSV Export
+History Mode: Exports detailed list with:
 
-### Factory Reset
+Item
 
-- This can be used to fully reset everything on the app. Bringing back to a "fresh install" state.
+Quantity
+
+Ring Type
+
+Date
+
+Time
+
+Totals Mode: Exports summary with:
+
+Item
+
+Total Quantity
+
+Quantity from LOTD
+
+Quantity from Hazelmere
+
+Auto-adjusting filename
+
+🔄 Factory Reset
+Clears all drop history
+
+Resets chat configuration
+
+Returns to fresh install state
+
+4️⃣ TECHNICAL FEATURES
+💾 Data Storage
+Local storage (localStorage) for persistence
+
+Automatic backup of old data during migration
+
+Chat history maintained in sessionStorage
+
+🌐 Discord Integration
+Optional webhook for notifications
+
+Custom messages with emojis
+
+Automatic sending when new drops are detected
+
+🎨 Color Detection
+Orange (#F57C01): LOTD drops
+
+Gold (#FFD700): Hazelmere drops
+
+Multiple colors supported simultaneously
+
+5️⃣ USABILITY FEATURES
+🔍 Duplicate Prevention
+History system prevents registering the same drop multiple times
+
+Verification of already processed lines
+
+Keeps only last 100 chats in temporary history
+
+⚡ Optimized Performance
+Chat checking every 600ms
+
+Efficient line processing
+
+Real-time interface updates
+
+🛡️ Fault Tolerance
+Null/undefined checks
+
+Try/catch on critical operations
+
+Fallbacks for missing data
+
+6️⃣ SETTINGS
+⚙️ System Requirements
+RuneScape timestamps enabled
+
+Interface transparency at 0%
+
+Chat filter turned off
+
+Loot chat visible on screen
+
+🔧 Customization Options
+Adjustable colors in code
+
+Expandable regex for new patterns
+
+Modular data structure
+
+7️⃣ USAGE EXAMPLES
+📝 Detected Messages:
+text
+[14:30:45] Your Luck of the Dwarves shines brightly and you receive: 500 x Dragonstone bolt tips
+[14:32:12] Your Hazelmere's signet ring shines brightly. You receive: 100 x Uncut diamond
+[14:35:30] The power of Hazelmere blesses your drop and doubles it: 200 x Onyx bolts
+📊 Saved Data:
+javascript
+{
+  item: "500 x Dragonstone bolt tips",
+  quantity: 500,
+  name: "Dragonstone bolt tips",
+  type: "LOTD",
+  time: "2024-01-15T14:30:45.000Z"
+}
+8️⃣ KNOWN LIMITATIONS
+Requires chat to be visible on screen
+
+Does not detect messages prior to app opening
+
+Depends on standard game message formatting
+
+9️⃣ FUTURE IMPROVEMENTS (SUGGESTIONS)
+📊 Statistical graphs
+
+📱 Multiple profile support
+
+🔔 Configurable sound alerts
+
+📈 Drops per hour rates
+
+💰 Market value calculation
+
+🔟 TECHNOLOGIES USED
+TypeScript/JavaScript
+
+Alt1 Toolkit API
+
+HTML5/CSS3
+
+LocalStorage/SessionStorage
+
+Webhooks (Discord)
+
+📦 INSTALLATION
+Option 1 - Direct Link:
+Copy and paste the following link in Alt1 browser:
+
+text
+alt1://addapp/https://YOUR_USERNAME.github.io/RingTracker/appconfig.json
+Option 2 - Alt1 Browser:
+Navigate to in Alt1 browser:
+
+text
+https://YOUR_USERNAME.github.io/RingTracker/
+⚙️ INITIAL SETUP
+Open the app with RuneScape window visible
+
+Select the correct chat:
+
+Ensure chat filter is OFF
+
+Timestamps must be ON
+
+Interface transparency at 0% (slider fully left in UI Customisation)
+
+📝 CHANGELOG
+Version 2.0 (January 2024)
+
+Added support for Hazelmere's Signet Ring
+
+Added double drop detection
+
+Enhanced CSV export with ring type separation
+
+Improved visual interface with ring icons
+
+Discord webhook integration
+
+Version 1.0 (Original)
+
+Basic LOTD tracking
+
+Based on ZeroGwafa's SerenTracker
+
+Version: 2.0
+Last Update: January 2024
+Compatibility: RuneScape 3 + Alt1 Toolkit
+Original Author: ZeroGwafa
+Adapted by: Your Name
+
+For support or suggestions, please open an issue on the project repository.
