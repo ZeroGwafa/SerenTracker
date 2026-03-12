@@ -13,8 +13,9 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        // library means that the exports from the entry file can be accessed from outside, in this case from the global scope as window.TestApp
-        library: { type: "umd", name: "TestApp" }
+        // library means that the exports from the entry file can be accessed from outside, 
+        // in this case from the global scope as window.RingTracker
+        library: { type: "umd", name: "RingTracker" }
     },
     devtool: false,
     mode: "development",
@@ -34,11 +35,33 @@ module.exports = {
             { test: /\.css$/, use: ["style-loader", "css-loader"] },
             { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"] },
             // type:"asset" means that webpack copies the file and gives you an url to them when you import them from js
-            { test: /\.(png|jpg|jpeg|gif|webp)$/, type: "asset/resource", generator: { filename: "[base]" } },
-            { test: /\.(html|json)$/, type: "asset/resource", generator: { filename: "[base]" } },
+            { 
+                test: /\.(png|jpg|jpeg|gif|webp)$/, 
+                type: "asset/resource", 
+                generator: { 
+                    filename: "assets/[name][ext]"  // Changed to organize assets in subfolder
+                } 
+            },
+            { 
+                test: /\.(html|json)$/, 
+                type: "asset/resource", 
+                generator: { 
+                    filename: "[base]"  // Keep HTML and JSON in root
+                } 
+            },
             // file types useful for writing alt1 apps, make sure these two loader come after any other json or png loaders, otherwise they will be ignored
             { test: /\.data\.png$/, loader: "alt1/imagedata-loader", type: "javascript/auto" },
             { test: /\.fontmeta.json/, loader: "alt1/font-loader" }
         ]
+    },
+    // Optional: Add devServer configuration for local testing
+    devServer: {
+        static: {
+            directory: path.join(__dirname, "dist"),
+        },
+        compress: true,
+        port: 9000,
+        hot: true,
+        open: true
     }
 }

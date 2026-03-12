@@ -5,14 +5,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Lucky Drops Tracker - LOTD & Hazelmere</title>
 </head>
 
 <body class="nis">
 
     <ul class="itemList list-group">
-        <li class="list-group-item header" data-show="history" title="Loading">Loading...</li>
-        <li class="list-group-item total">Total Seren Spirits collected: <span id="total" style="font-weight:bold"></span></li>
-        <li class='list-group-item item' style='word-wrap:break-word;white-space: normal'>If this message is showing for an extended period of time, then the chatbox reader for Alt1 isn't working due to an update.  Please be patient, and the issue will be fixed as soon as it can!
+        <li class="list-group-item header" data-show="history" title="Click to switch between History and Totals">Ring Tracker - Loading...</li>
+        <li class="list-group-item total">Total Drops Collected: <span id="total" style="font-weight:bold">0</span></li>
+        <li class='list-group-item item' style='word-wrap:break-word;white-space: normal'>
+            <span class="ring-icon">💎</span> If this message is showing for an extended period of time, then the chatbox reader for Alt1 isn't working due to an update. Please be patient, and the issue will be fixed as soon as it can!
+        </li>
     </ul>
 
     <div class="container">
@@ -20,73 +24,121 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <button class="nisbutton" data-bs-toggle="modal" data-bs-target="#settings" type="button">
-                            Settings
+                        <button class="nisbutton w-100" data-bs-toggle="modal" data-bs-target="#settings" type="button">
+                            ⚙️ Settings
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal nis" tabindex="-1" role="dialog" id="settings">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Settings</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+
+    <!-- Modal de Configurações -->
+<div class="modal nis fade" tabindex="-1" role="dialog" id="settings">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">⚙️ Ring Tracker Settings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Seletor de Chat -->
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <h6>📝 Select Chat</h6>
+                        <small class="text-muted">Choose the chat with loot messages</small>
+                    </div>
+                    <div class="col-6">
+                        <select class="chat-selector chat">
+                            <option value="">Select a chat...</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col" title="Allows the user to select the chat box the app should target.">
-                            <h6>Select Chat</h6>
-                        </div>
-                        <div class="col">
-                            <select class="chat">
-                                <option value="">Select Chat</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col" title="Exports the current data as a CSV file.">
-                            <button class='nisbutton export'>
-                                CSV Export
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <button class="nisbutton" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
-                                Factory Reset
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row collapse danger" id="resetApp">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col text-center">
-                                    This will remove all saved data and set all settings to default. This is irreversable!
-                                </div>
+
+                <!-- Informações sobre os anéis -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="totals-container">
+                            <div>
+                                <span class="totals-label">💎 LOTD Drops:</span>
+                                <span class="totals-value" id="lotdCount">0</span>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <button class="nisbutton clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
-                                        Yes
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="nisbutton" data-bs-toggle="collapse" href="#resetApp">
-                                        No
-                                    </button>
-                                </div>
+                            <div>
+                                <span class="totals-label">👑 Hazelmere Drops:</span>
+                                <span class="totals-value" id="hazelmereCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legenda das cores -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="legend-container">
+                            <div><span class="lotd-color">█</span>  LOTD</div>
+                            <div><span class="hazelmere-color">█</span>  Hazelmere</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exportação CSV - SOMENTE nisbutton -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <button class="nisbutton w-100 export">
+                            📥 CSV Export
+                        </button>
+                        <small class="text-muted d-block text-center mt-1">Exports based on current view (History or Totals)</small>
+                    </div>
+                </div>
+
+                <!-- Discord Webhook -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <details class="webhook-details">
+                            <summary>🔔 Discord Webhook (Optional)</summary>
+                            <div class="webhook-input-container">
+                                <input type="url" class="form-control" id="discordWebhook" placeholder="Enter Discord webhook URL">
+                                <small class="text-muted d-block mt-1">Get webhook URL from Discord channel settings</small>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Factory Reset - SOMENTE nisbutton -->
+                <div class="row">
+                    <div class="col-12">
+                        <button class="nisbutton w-100" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                            ⚠️ Factory Reset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirmação de Reset -->
+                <div class="row collapse mt-3" id="resetApp">
+                    <div class="col-12">
+                        <div class="alert alert-danger p-3">
+                            <strong class="d-block mb-2">⚠️ WARNING!</strong>
+                            <p class="mb-3">This will remove ALL saved data. This action cannot be undone!</p>
+                            <div class="d-flex gap-2">
+                                <!-- AMBOS com SOMENTE nisbutton -->
+                                <button class="nisbutton flex-fill clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                                    ✅ Yes
+                                </button>
+                                <button class="nisbutton flex-fill" data-bs-toggle="collapse" href="#resetApp">
+                                    ❌ No
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="modal-footer">
+                <small class="text-muted">
+                    Based on <a href="https://github.com/ZeroGwafa/SerenTracker" target="_blank">SerenTracker</a> & <a href="https://zerogwafa.github.io/ComponentCounter/index.html" target="_blank">ComponentCounter</a> by ZeroGwafa
+                </small>
+            </div>
         </div>
     </div>
-</body>
-<script src="./main.js"></script>
-</html>
+</div>

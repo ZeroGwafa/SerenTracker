@@ -1,14 +1,15 @@
 {
-  "appName": "SerenTracker",
-  "description": "Tracks Seren Spirit Drops as they appear in the chat box.",
+  "appName": "Ring Tracker",
+  "description": "Tracks Luck of the Dwarves and Hazelmere's Signet Ring drops",
   "appUrl": "./index.html",
   "configUrl": "./appconfig.json",
-  "iconUrl": "./icon.png",
-  "defaultWidth": 218,
-  "defaultHeight": 139,
-  "minWidth": 218,
-  "minHeight": 139,
+  "iconUrl": "./assets/icon.png",
+  "defaultWidth": 400,
+  "defaultHeight": 600,
+  "minWidth": 300,
+  "minHeight": 400,
+  "maxWidth": 800,
+  "maxHeight": 1000,
   "requestHandlers": [],
-  "activators": [],
-  "permissions": "pixel,gamestate,overlay"
+  "activators": []
 }

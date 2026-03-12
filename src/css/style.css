@@ -4,6 +4,8 @@
 
 body {
     margin-top: 10px !important;
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
 
 .nisbutton {
@@ -15,40 +17,50 @@ body {
     max-height: 75vh;
     margin-top: 8px;
 }
-
+/**/
 .modal-body,
 .modal-header,
 .modal-footer {
-    background-color: grey;
+
+    background-image: url('https://runeapps.org/nis/alt1-currentskin/background.png') !important;
+    background-color: #a8a8a85e !important;
+    background-blend-mode: overlay !important;
     color: white;
+    border-color: #ffaa00;
 }
 
 .warning {
-    background-color: yellow;
+    background-color: #ffaa00;
     color: black;
     font-weight: bold;
 }
 
 .danger {
-    background-color: red;
-    color: black;
+    background-color: #dc3545;
+    color: white;
     font-weight: bold;
 }
 
 .list-group-item {
     background: transparent;
-    border: grey solid 1px;
+    border: #444 solid 1px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: .25rem;
+    padding: .5rem .75rem;
     text-align: left;
-    color: white;
+    color: #e0e0e0;
+}
+
+.list-group-item:hover {
+    background-color: #333333;
+    border-color: #ffd700;
 }
 
 .list-group {
     height: calc(100vh - 4.25em);
     overflow-y: scroll;
     padding-top: 20px;
+    margin-bottom: 60px;
 }
 
 .list-group::-webkit-scrollbar {
@@ -58,16 +70,144 @@ body {
 .header {
     text-align: center;
     background: url(https://runeapps.org/nis/alt1-currentskin/nisbutton.png) 0px -100%/24px 400% repeat content-box;
-    background-color: black;
-    color: black;
+    background-color: #000000;
+    color: #413700;
     font-family: 'trajan-pro-3';
-    padding: unset;
+    padding: 15px;
     position: fixed;
     top: 10px;
     width: 100%;
     z-index: 1;
+    cursor: pointer;
+    border-bottom: 2px solid #f57c01;
+}
+
+.header:hover {
+    color: #ffffff;
+    border-bottom-color: #ffd700;
 }
 
 .total {
-    color: rgb(0, 255, 255);
+    color: #ffd000;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 50px;
+    text-align: center;
+    background: linear-gradient(180deg, #1a1a1a00 80%, #f1ad1b86 100%);
+    border-bottom: 2px solid #ffd700;
+    margin-top: 20px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#total {
+    color: #00ffff;
+    font-size: 1.4em;
+    margin-left: 10px;
+    padding: 2px 12px;
+    background: #333333b4;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.fixed-bottom {
+    background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(10,10,10,0.98) 100%);
+    border-top: 2px solid #ffd700;
+    padding: 10px 0;
+    z-index: 2;
+}
+.text-muted {
+    color: #ffd700 !important;  /* Dourado */
+    /* Ou qualquer outra cor que preferir */
+}
+.modal-content {
+    border: 2px solid #ffd700;
+}
+.lotd-color {
+    color: #00ffff;
+}
+.hazelmere-color {
+    color: #ffd700
+}
+.modal-header {
+    
+    border-bottom: 2px solid #f57c01;
+}
+
+.modal-footer {
+    
+    border-top: 2px solid #f57c01;
+
+}
+
+.chat-selector {
+    background-color: #2a2a2a;
+    color: white;
+    border: 2px solid #444;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+}
+
+.chat-selector:hover {
+    border-color: #ffd700;
+}
+
+.totals-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.legend-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.totals-label {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.totals-value {
+    color: #ffa600;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.ring-icon {
+    display: inline-block;
+    width: 20px;
+    margin-right: 8px;
+}
+
+.btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .total {
+        font-size: 1em;
+        padding: 10px;
+    }
+    
+    #total {
+        font-size: 1.2em;
+    }
+    
+    .list-group-item {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
 }

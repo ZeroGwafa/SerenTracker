@@ -1,3 +1,13 @@
-node_modules
+# Dependências
+node_modules/
 package-lock.json
-dist
+
+# Arquivos compilados
+dist/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
