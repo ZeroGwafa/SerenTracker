@@ -1,15 +1,102 @@
-/* ===== CORREÇÕES PARA O RING TRACKER ===== */
+.row {
+    text-align: center;
+}
 
-/* Ajuste do totalizador - mais espaçoso */
+body {
+    margin-top: 10px !important;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.nisbutton {
+    font-size: 8pt !important;
+}
+
+.main {
+    overflow-y: scroll;
+    max-height: 75vh;
+    margin-top: 8px;
+}
+/**/
+.modal-body,
+.modal-header,
+.modal-footer {
+
+    background-image: url('https://runeapps.org/nis/alt1-currentskin/background.png') !important;
+    background-color: #a8a8a85e !important;
+    background-blend-mode: overlay !important;
+    color: white;
+    border-color: #ffaa00;
+}
+
+.warning {
+    background-color: #ffaa00;
+    color: black;
+    font-weight: bold;
+}
+
+.danger {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+}
+
+.list-group-item {
+    background: transparent;
+    border: #444 solid 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: .5rem .75rem;
+    text-align: left;
+    color: #e0e0e0;
+}
+
+.list-group-item:hover {
+    background-color: #333333;
+    border-color: #ffd700;
+}
+
+.list-group {
+    height: calc(100vh - 4.25em);
+    overflow-y: scroll;
+    padding-top: 20px;
+    margin-bottom: 60px;
+}
+
+.list-group::-webkit-scrollbar {
+    display: none;
+}
+
+.header {
+    text-align: center;
+    background: url(https://runeapps.org/nis/alt1-currentskin/nisbutton.png) 0px -100%/24px 400% repeat content-box;
+    background-color: #000000;
+    color: #413700;
+    font-family: 'trajan-pro-3';
+    padding: 15px;
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
+    border-bottom: 2px solid #f57c01;
+}
+
+.header:hover {
+    color: #ffffff;
+    border-bottom-color: #ffd700;
+}
+
 .total {
-    color: #00ffff;
+    color: #ffd000;
     font-weight: bold;
     font-size: 1.2em;
-    padding: 15px !important;
+    padding: 50px;
     text-align: center;
-    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    background: linear-gradient(180deg, #1a1a1a00 80%, #f1ad1b86 100%);
     border-bottom: 2px solid #ffd700;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,134 +107,107 @@
     font-size: 1.4em;
     margin-left: 10px;
     padding: 2px 12px;
-    background: #333;
+    background: #333333b4;
     border-radius: 20px;
     display: inline-block;
 }
 
-/* Garantir que os botões do modal fiquem visíveis */
-.modal .nisbutton,
-.modal .button {
-    display: inline-block;
-    padding: 10px 20px !important;
-    margin: 5px 0 !important;
-    border: 2px solid #444;
-    border-radius: 4px;
-    background-color: #2a2a2a;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-    width: 100%;
-    font-size: 12pt !important;
+.fixed-bottom {
+    background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(10,10,10,0.98) 100%);
+    border-top: 2px solid #ffd700;
+    padding: 10px 0;
+    z-index: 2;
+}
+.text-muted {
+    color: #ffd700 !important;  /* Dourado */
+    /* Ou qualquer outra cor que preferir */
+}
+.modal-content {
+    border: 2px solid #ffd700;
+}
+.lotd-color {
+    color: #00ffff;
+}
+.hazelmere-color {
+    color: #ffd700
+}
+.modal-header {
+    
+    border-bottom: 2px solid #f57c01;
 }
 
-.modal .nisbutton:hover,
-.modal .button:hover {
-    border-color: #ffd700 !important;
-    background-color: #3a3a3a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+.modal-footer {
+    
+    border-top: 2px solid #f57c01;
+
 }
 
-.modal .nisbutton.primary,
-.modal .button.primary {
-    border-color: #f57c01;
-}
-
-.modal .nisbutton.primary:hover,
-.modal .button.primary:hover {
-    background-color: #f57c01;
-    color: black;
-}
-
-/* Ajuste do select de chat no modal */
-.modal select {
+.chat-selector {
     background-color: #2a2a2a;
     color: white;
     border: 2px solid #444;
     border-radius: 4px;
     padding: 8px;
     width: 100%;
-    margin-top: 5px;
 }
 
-.modal select:hover {
+.chat-selector:hover {
     border-color: #ffd700;
 }
 
-/* Container fixo dos botões inferiores */
-.fixed-bottom {
-    background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(10,10,10,0.98) 100%);
-    border-top: 2px solid #ffd700;
-    padding: 10px 0;
-}
-
-/* Ajuste dos itens da lista */
-.list-group-item.item {
-    padding: 10px 15px !important;
-    margin: 2px 5px;
-    border-radius: 4px !important;
-}
-
-.list-group-item.item:hover {
-    transform: translateX(5px);
-}
-
-/* Mensagem de loading */
-.item[style*="normal"] {
-    border-left: 4px solid #f57c01;
-    font-style: italic;
-    color: #aaa;
-}
-
-/* Modal adjustments */
-.modal-content {
-    border: 2px solid #ffd700;
-}
-
-.modal-header {
-    border-bottom: 2px solid #f57c01;
-}
-
-.modal-footer {
-    border-top: 2px solid #f57c01;
-}
-
-/* Botão de fechar */
-.btn-close {
-    filter: invert(1);
-    opacity: 0.8;
-}
-
-.btn-close:hover {
-    opacity: 1;
-}
-
-/* Ajuste do container de totais no modal */
-.modal .totals-container {
+.totals-container {
     display: flex;
     justify-content: space-between;
     padding: 15px;
     background: #1a1a1a;
     border-radius: 8px;
-    margin: 10px 0;
     border: 1px solid #444;
 }
 
-/* Responsividade */
+.legend-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.totals-label {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.totals-value {
+    color: #ffa600;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.ring-icon {
+    display: inline-block;
+    width: 20px;
+    margin-right: 8px;
+}
+
+.btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
 @media (max-width: 600px) {
     .total {
         font-size: 1em;
-        padding: 10px !important;
+        padding: 10px;
     }
     
     #total {
         font-size: 1.2em;
     }
     
-    .list-group-item.item {
-        padding: 8px 12px !important;
+    .list-group-item {
+        padding: 8px 12px;
         font-size: 12px;
     }
 }

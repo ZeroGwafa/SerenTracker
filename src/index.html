@@ -6,15 +6,15 @@
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <title>Ring Tracker - LOTD & Hazelmere (Dev Mode)</title>
+    <title>Lucky Drops Tracker - LOTD & Hazelmere</title>
 </head>
 
 <body class="nis">
 
     <ul class="itemList list-group">
         <li class="list-group-item header" data-show="history" title="Click to switch between History and Totals">Ring Tracker - Loading...</li>
-        <li class="list-group-item total">Total Drops Collected: <span id="total">0</span></li>
-        <li class="list-group-item item">
+        <li class="list-group-item total">Total Drops Collected: <span id="total" style="font-weight:bold">0</span></li>
+        <li class='list-group-item item' style='word-wrap:break-word;white-space: normal'>
             <span class="ring-icon">💎</span> If this message is showing for an extended period of time, then the chatbox reader for Alt1 isn't working due to an update. Please be patient, and the issue will be fixed as soon as it can!
         </li>
     </ul>
@@ -24,7 +24,7 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <button class="nisbutton" data-bs-toggle="modal" data-bs-target="#settings" type="button">
+                        <button class="nisbutton w-100" data-bs-toggle="modal" data-bs-target="#settings" type="button">
                             ⚙️ Settings
                         </button>
                     </div>
@@ -34,216 +34,111 @@
     </div>
 
     <!-- Modal de Configurações -->
-    <div class="modal nis fade" tabindex="-1" role="dialog" id="settings" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">⚙️ Ring Tracker Settings</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal nis fade" tabindex="-1" role="dialog" id="settings">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">⚙️ Ring Tracker Settings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Seletor de Chat -->
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <h6>📝 Select Chat</h6>
+                        <small class="text-muted">Choose the chat with loot messages</small>
+                    </div>
+                    <div class="col-6">
+                        <select class="chat-selector chat">
+                            <option value="">Select a chat...</option>
+                        </select>
+                    </div>
                 </div>
-                
-                <div class="modal-body">
-                    <!-- Seletor de Chat -->
-                    <div class="row mb-3">
-                        <div class="col-6">
-                            <h6>📝 Select Chat</h6>
-                            <small class="text-muted">Choose the chat with loot messages</small>
-                        </div>
-                        <div class="col-6">
-                            <select class="chat-selector chat">
-                                <option value="">Select a chat...</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <!-- Informações sobre os anéis -->
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <div class="totals-container">
-                                <div>
-                                    <span class="totals-label">💎 LOTD Drops:</span>
-                                    <span class="totals-value" id="lotdCount">0</span>
-                                </div>
-                                <div>
-                                    <span class="totals-label">👑 Hazelmere Drops:</span>
-                                    <span class="totals-value" id="hazelmereCount">0</span>
-                                </div>
+                <!-- Informações sobre os anéis -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="totals-container">
+                            <div>
+                                <span class="totals-label">💎 LOTD Drops:</span>
+                                <span class="totals-value" id="lotdCount">0</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Legenda das cores -->
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <div class="legend-container">
-                                <div><span class="lotd-color">█</span> LOTD (Orange)</div>
-                                <div><span class="hazelmere-color">█</span> Hazelmere (Gold)</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Exportação CSV -->
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <button class="nisbutton button primary export">
-                                📥 CSV Export
-                            </button>
-                            <small class="text-muted">Exports based on current view (History or Totals)</small>
-                        </div>
-                    </div>
-
-                    <!-- Discord Webhook -->
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <details>
-                                <summary>🔔 Discord Webhook (Optional)</summary>
-                                <div class="mt-2">
-                                    <input type="url" class="form-control" id="discordWebhook" placeholder="Enter Discord webhook URL">
-                                    <small class="text-muted">Get webhook URL from Discord channel settings</small>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-
-                    <!-- Factory Reset -->
-                    <div class="row">
-                        <div class="col-12">
-                            <button class="nisbutton button" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
-                                ⚠️ Factory Reset
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Confirmação de Reset -->
-                    <div class="row collapse mt-3" id="resetApp">
-                        <div class="col-12">
-                            <div class="alert alert-danger">
-                                <strong>⚠️ WARNING!</strong>
-                                <p>This will remove ALL saved data and reset all settings to default. This action cannot be undone!</p>
-                                <div class="button-group">
-                                    <button class="nisbutton clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
-                                        ✅ Yes, Reset Everything
-                                    </button>
-                                    <button class="nisbutton" data-bs-toggle="collapse" href="#resetApp">
-                                        ❌ No, Cancel
-                                    </button>
-                                </div>
+                            <div>
+                                <span class="totals-label">👑 Hazelmere Drops:</span>
+                                <span class="totals-value" id="hazelmereCount">0</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <small class="text-muted">
-                        Based on <a href="https://github.com/ZeroGwafa/SerenTracker" target="_blank">SerenTracker</a> by ZeroGwafa
-                    </small>
+                <!-- Legenda das cores -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="legend-container">
+                            <div><span class="lotd-color">█</span>  LOTD</div>
+                            <div><span class="hazelmere-color">█</span>  Hazelmere</div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Exportação CSV - SOMENTE nisbutton -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <button class="nisbutton w-100 export">
+                            📥 CSV Export
+                        </button>
+                        <small class="text-muted d-block text-center mt-1">Exports based on current view (History or Totals)</small>
+                    </div>
+                </div>
+
+                <!-- Discord Webhook -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <details class="webhook-details">
+                            <summary>🔔 Discord Webhook (Optional)</summary>
+                            <div class="webhook-input-container">
+                                <input type="url" class="form-control" id="discordWebhook" placeholder="Enter Discord webhook URL">
+                                <small class="text-muted d-block mt-1">Get webhook URL from Discord channel settings</small>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Factory Reset - SOMENTE nisbutton -->
+                <div class="row">
+                    <div class="col-12">
+                        <button class="nisbutton w-100" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                            ⚠️ Factory Reset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirmação de Reset -->
+                <div class="row collapse mt-3" id="resetApp">
+                    <div class="col-12">
+                        <div class="alert alert-danger p-3">
+                            <strong class="d-block mb-2">⚠️ WARNING!</strong>
+                            <p class="mb-3">This will remove ALL saved data. This action cannot be undone!</p>
+                            <div class="d-flex gap-2">
+                                <!-- AMBOS com SOMENTE nisbutton -->
+                                <button class="nisbutton flex-fill clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                                    ✅ Yes
+                                </button>
+                                <button class="nisbutton flex-fill" data-bs-toggle="collapse" href="#resetApp">
+                                    ❌ No
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <small class="text-muted">
+                    Based on <a href="https://github.com/ZeroGwafa/SerenTracker" target="_blank">SerenTracker</a> & <a href="https://zerogwafa.github.io/ComponentCounter/index.html" target="_blank">ComponentCounter</a> by ZeroGwafa
+                </small>
             </div>
         </div>
     </div>
-
-    <!-- Template para itens -->
-    <template id="itemTemplate">
-        <li class="list-group-item item">
-            <span class="ring-icon"></span>
-            <span class="item-text"></span>
-        </li>
-    </template>
-
-    <script src="./main.js"></script>
-    
-    <!-- ===== MODO DE DESENVOLVIMENTO ===== -->
-    <script>
-        // Ativar modo de desenvolvimento (mude para false em produção)
-        const DEV_MODE = true;
-        
-        if (DEV_MODE) {
-            console.log("🔧 MODO DE DESENVOLVIMENTO ATIVADO");
-            console.log("✅ Erros do chat serão ignorados");
-            console.log("📦 Dados de exemplo serão carregados");
-            
-            // 1. Ignorar erros relacionados ao chat
-            const originalConsoleError = console.error;
-            console.error = function(...args) {
-                if (args[0] && typeof args[0] === 'string' && 
-                    (args[0].includes('chat') || args[0].includes('ChatboxReader') || args[0].includes('alt1'))) {
-                    console.warn("🚫 Erro ignorado (modo desenvolvimento):", args[0]);
-                    return;
-                }
-                originalConsoleError.apply(console, args);
-            };
-            
-            window.addEventListener('error', function(e) {
-                if (e.message && (e.message.includes('chat') || 
-                                  e.message.includes('ChatboxReader') || 
-                                  e.message.includes('alt1') ||
-                                  e.message.includes('reader'))) {
-                    e.preventDefault();
-                    console.warn("🚫 Erro de chat ignorado:", e.message);
-                    return false;
-                }
-            });
-            
-            // 2. Simular dados de exemplo
-            setTimeout(function() {
-                const existingData = localStorage.getItem('RingTracker');
-                if (!existingData || JSON.parse(existingData).data.length === 0) {
-                    const mockData = {
-                        chat: 0,
-                        mode: "history",
-                        data: [
-                            {
-                                item: "500 x Dragonstone bolt tips",
-                                quantity: 500,
-                                name: "Dragonstone bolt tips",
-                                type: "LOTD",
-                                time: new Date().toISOString()
-                            },
-                            {
-                                item: "100 x Uncut diamond",
-                                quantity: 100,
-                                name: "Uncut diamond",
-                                type: "Hazelmere",
-                                time: new Date(Date.now() - 86400000).toISOString()
-                            },
-                            {
-                                item: "250 x Onyx bolts",
-                                quantity: 250,
-                                name: "Onyx bolts",
-                                type: "Hazelmere (Double)",
-                                time: new Date(Date.now() - 172800000).toISOString()
-                            }
-                        ]
-                    };
-                    localStorage.setItem('RingTracker', JSON.stringify(mockData));
-                    console.log("📦 Dados de exemplo criados!");
-                }
-                
-                // 3. Forçar atualização da interface
-                if (typeof showItems === 'function') {
-                    showItems();
-                } else {
-                    // Se showItems não estiver disponível, recarregar
-                    setTimeout(() => location.reload(), 500);
-                }
-            }, 1500);
-            
-            // 4. Simular seletor de chat
-            document.addEventListener('DOMContentLoaded', function() {
-                const chatSelect = document.querySelector('.chat');
-                if (chatSelect && chatSelect.options.length <= 1) {
-                    for (let i = 0; i < 3; i++) {
-                        const option = document.createElement('option');
-                        option.value = i.toString();
-                        option.textContent = `Chat ${i} (Simulado)`;
-                        chatSelect.appendChild(option);
-                    }
-                    console.log("💬 Seletor de chat simulado adicionado");
-                }
-            });
-        }
-    </script>
-    <!-- ===== FIM DO MODO DESENVOLVIMENTO ===== -->
-    
-</body>
-</html>
+</div>
