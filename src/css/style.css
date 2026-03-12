@@ -1,227 +1,153 @@
-.row {
-    text-align: center;
-}
+/* ===== CORREÇÕES PARA O RING TRACKER ===== */
 
-body {
-    margin-top: 10px !important;
-    background-color: #1a1a1a;  /* Fundo escuro combinando com o tema do RuneScape */
-    color: #ffffff;
-    font-family: 'trajan-pro-3', Arial, sans-serif;
-}
-
-.nisbutton {
-    font-size: 8pt !important;
-}
-
-.main {
-    overflow-y: scroll;
-    max-height: 75vh;
-    margin-top: 8px;
-}
-
-.modal-body,
-.modal-header,
-.modal-footer {
-    background-color: #2a2a2a;  /* Cinza mais escuro para melhor contraste */
-    color: white;
-    border-color: #ffd700;  /* Borda dourada para combinar com Hazelmere */
-}
-
-.warning {
-    background-color: #ffaa00;  /* Amarelo mais suave */
-    color: black;
-    font-weight: bold;
-}
-
-.danger {
-    background-color: #dc3545;  /* Vermelho padrão do Bootstrap */
-    color: white;
-    font-weight: bold;
-}
-
-.list-group-item {
-    background: transparent;
-    border: #444 solid 1px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: .5rem .75rem;  /* Mais espaçamento */
-    text-align: left;
-    color: #e0e0e0;
-    transition: background-color 0.2s;  /* Transição suave */
-}
-
-.list-group-item:hover {
-    background-color: #333333;  /* Destacar item ao passar o mouse */
-    border-color: #ffd700;  /* Borda dourada no hover */
-}
-
-/* Estilo específico para LOTD drops */
-.list-group-item.lotd {
-    border-left: 4px solid #f57c01;  /* Borda laranja para LOTD */
-}
-
-/* Estilo específico para Hazelmere drops */
-.list-group-item.hazelmere {
-    border-left: 4px solid #ffd700;  /* Borda dourada para Hazelmere */
-}
-
-.list-group {
-    height: calc(100vh - 4.25em);
-    overflow-y: scroll;
-    padding-top: 20px;
-}
-
-.list-group::-webkit-scrollbar {
-    display: none;  /* Esconder scrollbar mas manter funcionalidade */
-}
-
-.header {
-    text-align: center;
-    background: url(https://runeapps.org/nis/alt1-currentskin/nisbutton.png) 0px -100%/24px 400% repeat content-box;
-    background-color: #000000;
-    color: #ffd700;  /* Texto dourado */
-    font-family: 'trajan-pro-3', 'Arial', sans-serif;
-    padding: 10px 0;  /* Mais espaçamento */
-    position: fixed;
-    top: 10px;
-    width: 100%;
-    z-index: 1;
-    cursor: pointer;  /* Indicar que é clicável */
-    border-bottom: 2px solid #f57c01;  /* Linha laranja na base */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Sombra no texto */
-}
-
-.header:hover {
-    color: #ffffff;  /* Fica branco ao passar o mouse */
-    border-bottom-color: #ffd700;  /* Linha dourada no hover */
-}
-
-/* Estilo para o totalizador */
+/* Ajuste do totalizador - mais espaçoso */
 .total {
-    color: #00ffff;  /* Ciano original */
+    color: #00ffff;
     font-weight: bold;
     font-size: 1.2em;
-    padding: 5px;
+    padding: 15px !important;
+    text-align: center;
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-bottom: 2px solid #ffd700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Estilo para o ícone do anel na lista */
-.ring-icon {
+#total {
+    color: #00ffff;
+    font-size: 1.4em;
+    margin-left: 10px;
+    padding: 2px 12px;
+    background: #333;
+    border-radius: 20px;
     display: inline-block;
-    width: 20px;
-    margin-right: 8px;
-    font-size: 1.2em;
 }
 
-.lotd-icon {
-    color: #f57c01;  /* Laranja para LOTD */
-}
-
-.hazelmere-icon {
-    color: #ffd700;  /* Dourado para Hazelmere */
-}
-
-/* Estilo para o dropdown de seleção de chat */
-.chat-selector {
-    background-color: #2a2a2a;
-    color: white;
+/* Garantir que os botões do modal fiquem visíveis */
+.modal .nisbutton,
+.modal .button {
+    display: inline-block;
+    padding: 10px 20px !important;
+    margin: 5px 0 !important;
     border: 2px solid #444;
     border-radius: 4px;
-    padding: 5px;
-    margin: 5px 0;
-    width: 100%;
-}
-
-.chat-selector:hover {
-    border-color: #ffd700;
-}
-
-/* Estilo para os botões */
-.button {
     background-color: #2a2a2a;
     color: white;
-    border: 2px solid #444;
-    border-radius: 4px;
-    padding: 8px 16px;
-    margin: 5px;
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
-    font-family: 'trajan-pro-3', 'Arial', sans-serif;
+    width: 100%;
+    font-size: 12pt !important;
 }
 
-.button:hover {
-    border-color: #ffd700;
+.modal .nisbutton:hover,
+.modal .button:hover {
+    border-color: #ffd700 !important;
     background-color: #3a3a3a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-.button.primary {
-    border-color: #f57c01;  /* Laranja para botões principais */
+.modal .nisbutton.primary,
+.modal .button.primary {
+    border-color: #f57c01;
 }
 
-.button.primary:hover {
+.modal .nisbutton.primary:hover,
+.modal .button.primary:hover {
     background-color: #f57c01;
     color: black;
 }
 
-/* Estilo para o container de totais */
-.totals-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+/* Ajuste do select de chat no modal */
+.modal select {
     background-color: #2a2a2a;
+    color: white;
     border: 2px solid #444;
     border-radius: 4px;
-    margin: 10px 0;
-}
-
-.totals-label {
-    color: #ffd700;
-    font-weight: bold;
-}
-
-.totals-value {
-    color: #00ffff;
-    font-weight: bold;
-}
-
-/* Estilo para tooltips customizados */
-.item-tooltip {
-    background-color: #2a2a2a;
-    border: 2px solid #ffd700;
-    border-radius: 4px;
     padding: 8px;
-    color: white;
-    font-size: 12px;
-    max-width: 300px;
+    width: 100%;
+    margin-top: 5px;
 }
 
-.tooltip-ring {
-    display: inline-block;
-    margin-right: 5px;
+.modal select:hover {
+    border-color: #ffd700;
 }
 
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Container fixo dos botões inferiores */
+.fixed-bottom {
+    background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(10,10,10,0.98) 100%);
+    border-top: 2px solid #ffd700;
+    padding: 10px 0;
 }
 
-.fade-in {
-    animation: fadeIn 0.3s ease-in;
+/* Ajuste dos itens da lista */
+.list-group-item.item {
+    padding: 10px 15px !important;
+    margin: 2px 5px;
+    border-radius: 4px !important;
+}
+
+.list-group-item.item:hover {
+    transform: translateX(5px);
+}
+
+/* Mensagem de loading */
+.item[style*="normal"] {
+    border-left: 4px solid #f57c01;
+    font-style: italic;
+    color: #aaa;
+}
+
+/* Modal adjustments */
+.modal-content {
+    border: 2px solid #ffd700;
+}
+
+.modal-header {
+    border-bottom: 2px solid #f57c01;
+}
+
+.modal-footer {
+    border-top: 2px solid #f57c01;
+}
+
+/* Botão de fechar */
+.btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* Ajuste do container de totais no modal */
+.modal .totals-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid #444;
 }
 
 /* Responsividade */
 @media (max-width: 600px) {
-    .header {
-        font-size: 14px;
+    .total {
+        font-size: 1em;
+        padding: 10px !important;
     }
     
-    .list-group-item {
-        font-size: 12px;
-        padding: 4px 8px;
+    #total {
+        font-size: 1.2em;
     }
     
-    .button {
-        padding: 6px 12px;
+    .list-group-item.item {
+        padding: 8px 12px !important;
         font-size: 12px;
     }
 }

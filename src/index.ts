@@ -1,3 +1,18 @@
+const DEV_MODE = !window.alt1;
+
+if (DEV_MODE) {
+    console.log("🔧 MODO DESENVOLVIMENTO: Rodando fora do Alt1");
+    console.log("✅ Chamadas à API Alt1 serão ignoradas");
+    
+    // Mock da API Alt1 para evitar erros
+    window.alt1 = window.alt1 || {
+        identifyAppUrl: () => {},
+        overLayRect: () => {},
+        captureHoldFullRs: () => {},
+        // Adicione outros métodos conforme necessário
+    } as any;
+}
+// ===== FIM MODO DESENVOLVIMENTO =====
 import * as a1lib from "alt1";
 import ChatboxReader from "alt1/chatbox";
 
@@ -307,17 +322,25 @@ function showSelectedChat(chat: any) {
     if (!chat?.mainbox?.rect) return;
     
     try {
-        alt1.overLayRect(
-            appColor,
-            chat.mainbox.rect.x,
-            chat.mainbox.rect.y,
-            chat.mainbox.rect.width,
-            chat.mainbox.rect.height,
-            2000,
-            5
-        );
+        if (window.alt1) {
+            alt1.overLayRect(
+                appColor,
+                chat.mainbox.rect.x,
+                chat.mainbox.rect.y,
+                chat.mainbox.rect.width,
+                chat.mainbox.rect.height,
+                2000,
+                5
+            );
+        } else {
+            console.log("🔧 [DEV] Overlay do chat seria mostrado aqui:", chat.mainbox.rect);
+        }
     } catch (e) {
-        console.log("Overlay not available");
+        if (DEV_MODE) {
+            console.log("🔧 [DEV] Overlay ignorado:", e);
+        } else {
+            console.log("Overlay not available");
+        }
     }
 }
 

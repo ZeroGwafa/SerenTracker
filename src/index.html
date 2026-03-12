@@ -6,191 +6,15 @@
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/nis/nis.css" />
     <link rel="stylesheet" type="text/css" href="https://runeapps.org/runeappslib.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <title>Ring Tracker - LOTD & Hazelmere</title>
-    <style>
-        /* Ajustes de espacamento */
-        .itemList {
-            margin-bottom: 60px; /* Espaço para os botões fixos */
-        }
-        
-        .total {
-            padding: 12px !important;
-            font-size: 14px;
-            text-align: center;
-            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
-            border-bottom: 2px solid #ffd700;
-            margin-bottom: 5px;
-        }
-        
-        #total {
-            color: #00ffff;
-            font-size: 18px;
-            margin-left: 8px;
-            padding: 2px 8px;
-            background: #333;
-            border-radius: 12px;
-            display: inline-block;
-        }
-        
-        /* Ajuste dos itens da lista */
-        .list-group-item.item {
-            padding: 10px 15px !important;
-            margin: 2px 5px;
-            border-radius: 4px !important;
-            background: #2a2a2a;
-            transition: all 0.2s;
-        }
-        
-        .list-group-item.item:hover {
-            background: #3a3a3a;
-            transform: translateX(5px);
-            border-left: 4px solid #ffd700;
-        }
-        
-        /* Ajuste do header */
-        .header {
-            padding: 15px 0 !important;
-            font-size: 16px;
-            letter-spacing: 1px;
-            background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
-            border-bottom: 3px solid #f57c01;
-        }
-        
-        /* Botões do modal */
-        .nisbutton {
-            padding: 10px 20px !important;
-            margin: 5px 0 !important;
-            border: 2px solid #444;
-            border-radius: 4px;
-            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .nisbutton:hover {
-            border-color: #ffd700 !important;
-            background: linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        
-        .nisbutton.primary {
-            border-color: #f57c01;
-        }
-        
-        .nisbutton.primary:hover {
-            background: linear-gradient(180deg, #f57c01 0%, #d86500 100%);
-            color: black;
-        }
-        
-        /* Container fixo dos botões */
-        .fixed-bottom {
-            background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(10,10,10,0.98) 100%);
-            backdrop-filter: blur(5px);
-            border-top: 2px solid #ffd700;
-            padding: 10px 0;
-        }
-        
-        /* Modal adjustments */
-        .modal-content {
-            background: #2a2a2a;
-            border: 2px solid #ffd700;
-        }
-        
-        .modal-header {
-            border-bottom: 2px solid #f57c01;
-            padding: 15px;
-        }
-        
-        .modal-body {
-            padding: 20px;
-        }
-        
-        .modal-footer {
-            border-top: 2px solid #f57c01;
-            padding: 10px;
-        }
-        
-        /* Botão de fechar */
-        .btn-close {
-            filter: invert(1);
-            opacity: 0.8;
-        }
-        
-        .btn-close:hover {
-            opacity: 1;
-        }
-        
-        /* Container de totais no modal */
-        .totals-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            margin: 10px 0;
-            border: 1px solid #444;
-        }
-        
-        .totals-label {
-            color: #ffd700;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .totals-value {
-            color: #00ffff;
-            font-weight: bold;
-            font-size: 18px;
-            margin-left: 10px;
-        }
-        
-        /* Mensagem de loading */
-        .item[style*="normal"] {
-            background: #2a2a2a;
-            border-left: 4px solid #f57c01;
-            padding: 15px !important;
-            font-style: italic;
-            color: #aaa;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 600px) {
-            .total {
-                font-size: 12px;
-                padding: 8px !important;
-            }
-            
-            #total {
-                font-size: 14px;
-            }
-            
-            .list-group-item.item {
-                padding: 8px 12px !important;
-                font-size: 12px;
-            }
-            
-            .header {
-                font-size: 14px;
-                padding: 12px 0 !important;
-            }
-        }
-    </style>
+    <title>Ring Tracker - LOTD & Hazelmere (Dev Mode)</title>
 </head>
 
 <body class="nis">
 
     <ul class="itemList list-group">
         <li class="list-group-item header" data-show="history" title="Click to switch between History and Totals">Ring Tracker - Loading...</li>
-        <li class="list-group-item total">
-            <span style="display: flex; align-items: center; justify-content: center;">
-                <span>Total Drops Collected:</span>
-                <span id="total" style="font-weight:bold; margin-left: 10px;">0</span>
-            </span>
-        </li>
-        <li class='list-group-item item' style='word-wrap:break-word;white-space: normal'>
+        <li class="list-group-item total">Total Drops Collected: <span id="total">0</span></li>
+        <li class="list-group-item item">
             <span class="ring-icon">💎</span> If this message is showing for an extended period of time, then the chatbox reader for Alt1 isn't working due to an update. Please be patient, and the issue will be fixed as soon as it can!
         </li>
     </ul>
@@ -200,7 +24,7 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <button class="nisbutton w-100" data-bs-toggle="modal" data-bs-target="#settings" type="button">
+                        <button class="nisbutton" data-bs-toggle="modal" data-bs-target="#settings" type="button">
                             ⚙️ Settings
                         </button>
                     </div>
@@ -220,38 +44,40 @@
                 
                 <div class="modal-body">
                     <!-- Seletor de Chat -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <label class="form-label fw-bold text-warning">📝 Select Chat</label>
-                            <select class="form-select chat bg-dark text-light border-warning">
-                                <option value="">Choose a chat window...</option>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <h6>📝 Select Chat</h6>
+                            <small class="text-muted">Choose the chat with loot messages</small>
+                        </div>
+                        <div class="col-6">
+                            <select class="chat-selector chat">
+                                <option value="">Select a chat...</option>
                             </select>
-                            <small class="text-muted d-block mt-1">Select which chat window contains loot messages</small>
                         </div>
                     </div>
 
                     <!-- Informações sobre os anéis -->
-                    <div class="row mb-4">
+                    <div class="row mb-3">
                         <div class="col-12">
                             <div class="totals-container">
-                                <div class="text-center">
-                                    <div class="totals-label">💎 LOTD</div>
-                                    <div class="totals-value" id="lotdCount">0</div>
+                                <div>
+                                    <span class="totals-label">💎 LOTD Drops:</span>
+                                    <span class="totals-value" id="lotdCount">0</span>
                                 </div>
-                                <div class="text-center">
-                                    <div class="totals-label">👑 Hazelmere</div>
-                                    <div class="totals-value" id="hazelmereCount">0</div>
+                                <div>
+                                    <span class="totals-label">👑 Hazelmere Drops:</span>
+                                    <span class="totals-value" id="hazelmereCount">0</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Legenda das cores -->
-                    <div class="row mb-4">
+                    <div class="row mb-3">
                         <div class="col-12">
-                            <div class="d-flex justify-content-center gap-4 p-3 bg-dark rounded">
-                                <div><span style="color: #f57c01;">█</span> <span class="text-light">LOTD</span></div>
-                                <div><span style="color: #ffd700;">█</span> <span class="text-light">Hazelmere</span></div>
+                            <div class="legend-container">
+                                <div><span class="lotd-color">█</span> LOTD (Orange)</div>
+                                <div><span class="hazelmere-color">█</span> Hazelmere (Gold)</div>
                             </div>
                         </div>
                     </div>
@@ -259,22 +85,21 @@
                     <!-- Exportação CSV -->
                     <div class="row mb-3">
                         <div class="col-12">
-                            <button class="nisbutton primary w-100 export">
+                            <button class="nisbutton button primary export">
                                 📥 CSV Export
                             </button>
-                            <small class="text-muted d-block text-center mt-1">Exports based on current view</small>
+                            <small class="text-muted">Exports based on current view (History or Totals)</small>
                         </div>
                     </div>
 
                     <!-- Discord Webhook -->
                     <div class="row mb-3">
                         <div class="col-12">
-                            <details class="bg-dark p-3 rounded">
-                                <summary class="text-warning fw-bold" style="cursor: pointer;">🔔 Discord Webhook (Optional)</summary>
-                                <div class="mt-3">
-                                    <input type="url" class="form-control bg-dark text-light border-warning" 
-                                           id="discordWebhook" placeholder="https://discord.com/api/webhooks/...">
-                                    <small class="text-muted d-block mt-1">Get webhook URL from Discord channel settings</small>
+                            <details>
+                                <summary>🔔 Discord Webhook (Optional)</summary>
+                                <div class="mt-2">
+                                    <input type="url" class="form-control" id="discordWebhook" placeholder="Enter Discord webhook URL">
+                                    <small class="text-muted">Get webhook URL from Discord channel settings</small>
                                 </div>
                             </details>
                         </div>
@@ -283,8 +108,7 @@
                     <!-- Factory Reset -->
                     <div class="row">
                         <div class="col-12">
-                            <button class="nisbutton w-100" style="border-color: #dc3545;" 
-                                    data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                            <button class="nisbutton button" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
                                 ⚠️ Factory Reset
                             </button>
                         </div>
@@ -293,15 +117,15 @@
                     <!-- Confirmação de Reset -->
                     <div class="row collapse mt-3" id="resetApp">
                         <div class="col-12">
-                            <div class="alert alert-danger border-0" style="background: #dc3545;">
-                                <h6 class="fw-bold">⚠️ WARNING!</h6>
-                                <p class="small">This will remove ALL saved data. This action cannot be undone!</p>
-                                <div class="d-flex gap-2 justify-content-center">
-                                    <button class="nisbutton clear flex-fill" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
-                                        ✅ Yes
+                            <div class="alert alert-danger">
+                                <strong>⚠️ WARNING!</strong>
+                                <p>This will remove ALL saved data and reset all settings to default. This action cannot be undone!</p>
+                                <div class="button-group">
+                                    <button class="nisbutton clear" data-type="reset" data-bs-toggle="collapse" href="#resetApp">
+                                        ✅ Yes, Reset Everything
                                     </button>
-                                    <button class="nisbutton flex-fill" data-bs-toggle="collapse" href="#resetApp">
-                                        ❌ No
+                                    <button class="nisbutton" data-bs-toggle="collapse" href="#resetApp">
+                                        ❌ No, Cancel
                                     </button>
                                 </div>
                             </div>
@@ -310,8 +134,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <small class="text-muted w-100 text-center">
-                        Based on <a href="https://github.com/ZeroGwafa/SerenTracker" target="_blank" class="text-warning text-decoration-none">SerenTracker</a> by ZeroGwafa
+                    <small class="text-muted">
+                        Based on <a href="https://github.com/ZeroGwafa/SerenTracker" target="_blank">SerenTracker</a> by ZeroGwafa
                     </small>
                 </div>
             </div>
@@ -326,7 +150,100 @@
         </li>
     </template>
 
-    <!-- Script principal -->
     <script src="./main.js"></script>
+    
+    <!-- ===== MODO DE DESENVOLVIMENTO ===== -->
+    <script>
+        // Ativar modo de desenvolvimento (mude para false em produção)
+        const DEV_MODE = true;
+        
+        if (DEV_MODE) {
+            console.log("🔧 MODO DE DESENVOLVIMENTO ATIVADO");
+            console.log("✅ Erros do chat serão ignorados");
+            console.log("📦 Dados de exemplo serão carregados");
+            
+            // 1. Ignorar erros relacionados ao chat
+            const originalConsoleError = console.error;
+            console.error = function(...args) {
+                if (args[0] && typeof args[0] === 'string' && 
+                    (args[0].includes('chat') || args[0].includes('ChatboxReader') || args[0].includes('alt1'))) {
+                    console.warn("🚫 Erro ignorado (modo desenvolvimento):", args[0]);
+                    return;
+                }
+                originalConsoleError.apply(console, args);
+            };
+            
+            window.addEventListener('error', function(e) {
+                if (e.message && (e.message.includes('chat') || 
+                                  e.message.includes('ChatboxReader') || 
+                                  e.message.includes('alt1') ||
+                                  e.message.includes('reader'))) {
+                    e.preventDefault();
+                    console.warn("🚫 Erro de chat ignorado:", e.message);
+                    return false;
+                }
+            });
+            
+            // 2. Simular dados de exemplo
+            setTimeout(function() {
+                const existingData = localStorage.getItem('RingTracker');
+                if (!existingData || JSON.parse(existingData).data.length === 0) {
+                    const mockData = {
+                        chat: 0,
+                        mode: "history",
+                        data: [
+                            {
+                                item: "500 x Dragonstone bolt tips",
+                                quantity: 500,
+                                name: "Dragonstone bolt tips",
+                                type: "LOTD",
+                                time: new Date().toISOString()
+                            },
+                            {
+                                item: "100 x Uncut diamond",
+                                quantity: 100,
+                                name: "Uncut diamond",
+                                type: "Hazelmere",
+                                time: new Date(Date.now() - 86400000).toISOString()
+                            },
+                            {
+                                item: "250 x Onyx bolts",
+                                quantity: 250,
+                                name: "Onyx bolts",
+                                type: "Hazelmere (Double)",
+                                time: new Date(Date.now() - 172800000).toISOString()
+                            }
+                        ]
+                    };
+                    localStorage.setItem('RingTracker', JSON.stringify(mockData));
+                    console.log("📦 Dados de exemplo criados!");
+                }
+                
+                // 3. Forçar atualização da interface
+                if (typeof showItems === 'function') {
+                    showItems();
+                } else {
+                    // Se showItems não estiver disponível, recarregar
+                    setTimeout(() => location.reload(), 500);
+                }
+            }, 1500);
+            
+            // 4. Simular seletor de chat
+            document.addEventListener('DOMContentLoaded', function() {
+                const chatSelect = document.querySelector('.chat');
+                if (chatSelect && chatSelect.options.length <= 1) {
+                    for (let i = 0; i < 3; i++) {
+                        const option = document.createElement('option');
+                        option.value = i.toString();
+                        option.textContent = `Chat ${i} (Simulado)`;
+                        chatSelect.appendChild(option);
+                    }
+                    console.log("💬 Seletor de chat simulado adicionado");
+                }
+            });
+        }
+    </script>
+    <!-- ===== FIM DO MODO DESENVOLVIMENTO ===== -->
+    
 </body>
 </html>
